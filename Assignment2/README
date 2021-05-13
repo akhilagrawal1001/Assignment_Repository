@@ -1,0 +1,50 @@
+A.) Assignment2 will be the root folder, all the paths of the files will be given relative to this folder.
+
+B.) To generate a pair of public and private key, execute "key_pair.js"
+    Keys will be stored in files named "public.pem" and "private.pem" respectively.
+
+C.) To get the encrypted text of any message, exexute "sign.js" which takes 3 inputs:
+    1.) message : the message which is to be signed.
+    2.) privkey_path : relative path of file containing private key i.e. "private.pem" w/o quotes.
+    3.) passphr : passphrase of the encrypted private key i.e. "top secret" w/o quotes.
+    
+    The encrypted text will be stored in a file named "encrypted.txt".
+
+D.) Finally execute "verify", which takes 3 inputs:
+    1.) pubkey_path : relative path of file containing public key i.e "public.pem" w/o quotes.
+    2.) unencrypted : unencrypted message which is to be verified.
+    3.) encrypted_path : relative path of file containing encrypted message/signature i.e. "encrypted.txt" w/o quotes.
+    
+    Outputs "Signature verified!" if the signature matches, otherwise "Verification Failed".
+    
+
+Sample Input 1:    
+
+for "signing.js" :
+hello there
+private.pem
+top secret
+
+for "verify.js" :
+public.pem
+hello there
+encrypted.txt
+
+Sample Output 1(in "verify.js"):
+    Signature Verified!
+
+
+Sample Input 2:
+
+for "signing.js" :
+hello there
+private.pem
+top secret
+
+for "verify.js" :
+public.pem
+HELLO THERE
+encrypted.txt
+
+Sample Output 2(in "verify.js"):
+    Verification Failed
