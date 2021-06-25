@@ -5,7 +5,7 @@ var fs = require('fs');
 
 //get the time stamp
 var time = now();
-time = BigInt('1624102916142583230');
+time = BigInt(time);
 
 //creates buffer or byte array of number of inputs
 input_number = read.question('Enter the number of inputs in transaction:\n');
