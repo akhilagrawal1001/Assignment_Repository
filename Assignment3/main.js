@@ -5,7 +5,7 @@ var fs = require('fs');
 
 //get the time stamp
 var time = now();
-time = BigInt(time);
+time = BigInt('1624102916142583230');
 
 //creates buffer or byte array of number of inputs
 input_number = read.question('Enter the number of inputs in transaction:\n');
@@ -75,8 +75,13 @@ for(var j = 0; j < output_number; j++){
     temp_buffer.writeInt32BE(len_pub);
     output_data = Buffer.concat([output_data, temp_buffer]);
 
-    var pub_key = read.question('Enter the public key of recepient:\n');
-    temp_buffer = Buffer.from(pub_key, 'base64');
+    var pub_key = read.question('Enter the public key path of recepient:\n');
+    pub_key = fs.readFileSync(pub_key, 'utf-8');
+    if(pub_key.length != len_pub){
+        console.log("Hey bro what r u doing!");
+        console.log("Your len pub is " + len_pub +" and you pub_length is " + pub_key.length);
+    }
+    temp_buffer = Buffer.from(pub_key, 'utf-8');
     output_data = Buffer.concat([output_data, temp_buffer]);
 }
 

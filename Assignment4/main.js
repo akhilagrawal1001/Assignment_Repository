@@ -42,10 +42,7 @@ for(var j = 0; j < num_out; j++){
     byte_pos += 4
     console.log("Length of public key for output " + String(j+1) + ":\n" + len_pub_key)
     pub_key = transaction_data.subarray(byte_pos, byte_pos+len_pub_key)
-    console.log("Public key for output " + String(j+1) + ":\n" + pub_key.toString('base64'));
+    console.log("Public key for output " + String(j+1) + ":\n" + pub_key.toString());
     byte_pos += len_pub_key
     console.log("\n");
 }
-
-
-
